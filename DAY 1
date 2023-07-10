@@ -1,0 +1,218 @@
+# Create a matrix
+matrix1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+matrix2 <- matrix(c(7, 8, 9, 10, 11, 12), nrow = 2, ncol = 3)
+
+# Print the matrices
+print(matrix1)
+print(matrix2)
+
+# Add two matrices
+matrix_sum <- matrix1 + matrix2
+print(matrix_sum)
+
+#multiply
+matrix_prod <- matrix1 + matrix2
+print(matrix_prod)
+
+OUT PUT :
+Matrix 1
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+# Matrix 2
+     [,1] [,2] [,3]
+[1,]    7    9   11
+[2,]    8   10   12
+
+# Matrix Sum
+     [,1] [,2] [,3]
+[1,]    8   12   16
+[2,]   10   14   18
+
+# Matrix Product
+     [,1] [,2]
+[1,]   94  106
+[2,]  122  139
+
+
+2]factor variable
+# Create factor variable for gender
+gender <- factor(c("male", "female", "male", "male", "female"))
+
+# Print the factor variable
+print(gender)
+
+
+OUT PUT :
+1] male   female male   male   female
+Levels: female male
+
+
+3]   data frame
+
+# Create the data frame
+members <- data.frame(
+  Id = c(1, 2, 3, 4, 5),
+  name = c("John", "Sarah", "Michael", "Emily", "David"),
+  occupation = c("Engineer", "Doctor", "Teacher", "Lawyer", "Programmer"),
+  employee = c(TRUE, FALSE, TRUE, FALSE, TRUE)
+)
+
+# Print the data frame
+print(members)
+
+OUT PUT:
+
+Id    name occupation employee
+1  1    John   Engineer     TRUE
+2  2   Sarah     Doctor    FALSE
+3  3 Michael    Teacher     TRUE
+4  4   Emily     Lawyer    FALSE
+5  5   David Programmer     TRUE
+
+# Create the data frame
+members <- data.frame(
+  Id = c(1, 2, 3, 4, 5),
+  name = c("John", "Sarah", "Michael", "Emily", "David"),
+  occupation = c("Engineer", "Doctor", "Teacher", "Lawyer", "Programmer"),
+  employee = c(TRUE, FALSE, TRUE, FALSE, TRUE)
+)
+
+# Add the salary column
+members$salary <- c(5000, 6000, 4500, 7000, 5500)
+
+# Print the updated data frame
+print(members)
+
+OUT PUT:
+Id    name occupation employee salary
+1  1    John   Engineer     TRUE   5000
+2  2   Sarah     Doctor    FALSE   6000
+3  3 Michael    Teacher     TRUE   4500
+4  4   Emily     Lawyer    FALSE   7000
+5  5   David Programmer     TRUE   5500
+
+
+# summary
+print(summary(members))
+
+OUTPUT:
+d         name          occupation   employee       salary     
+ Min.   :1   David  :1   Engineer  :1   FALSE:2   Min.   :4500  
+ 1st Qu.:2   Emily  :1   Doctor    :1   TRUE :3   1st Qu.:5000  
+ Median :3   John   :1   Lawyer    :1            Median :5500  
+ Mean   :3   Michael:1   Programmer:1            Mean   :5600  
+ 3rd Qu.:4   Sarah  :1   Teacher   :1            3rd Qu.:6000  
+ Max.   :5
+max.    :7000
+
+#extraction 
+occupation<- members$occupation
+printt(occupation)
+
+OUTPUT:
+ [1] Engineer  Doctor    Teacher   Lawyer    Programmer
+Levels: Doctor Engineer Lawyer Programmer Teacher
+
+4] 
+# basic calculator
+# Function to perform addition
+add <- function(a, b) {
+  return(a + b)
+}
+
+# Function to perform subtraction
+subtract <- function(a, b) {
+  return(a - b)
+}
+
+# Function to perform multiplication
+multiply <- function(a, b) {
+  return(a * b)
+}
+
+# Function to perform division
+divide <- function(a, b) {
+  if (b != 0) {
+    return(a / b)
+  } else {
+    return("Error: Division by zero")
+  }
+}
+
+# Input values
+num1 <- 10
+num2 <- 5
+
+# Perform calculations
+add_result <- add(num1, num2)
+subtract_result <- subtract(num1, num2)
+multiply_result <- multiply(num1, num2)
+divide_result <- divide(num1, num2)
+
+# Print the results
+print(paste("Addition:", add_result))
+print(paste("Subtraction:", subtract_result))
+print(paste("Multiplication:", multiply_result))
+print(paste("Division:", divide_result))
+
+OUT PUT:
+[1] "Addition: 15"
+[1] "Subtraction: 5"
+[1] "Multiplication: 50"
+[1] "Division: 2"
+
+
+# Function to convert Kelvin to Celsius
+convert_kelvin_to_celsius <- function(kelvin) {
+  celsius <- kelvin - 273.15
+  return(celsius)
+}
+
+# Example usage
+kelvin_temp <- 300.15  # Replace with the Kelvin temperature you want to convert
+celsius_temp <- convert_kelvin_to_celsius(kelvin_temp)
+print(celsius_temp)
+
+OUT PUT:
+Kelvin temperature: 300.15
+Celsius temperature: 27
+
+# Create a complex number using the complex() function
+complex_num <- complex(real = 3, imaginary = 4)
+
+# Print the complex number
+print(complex_num)
+
+OUT PUT:
+[1] 3+4i
+
+#Calculate the square root of 729
+result <- sqrt(729)
+
+# Print the result
+print(result)
+
+OUTPUT:
+[1]27
+
+
+# finding X  basic arthmetic operations :
+# Evaluate the expression
+x <- 2 - 1 * 2
+
+# Print the value of x
+print(x)
+
+OUT PUT:
+[1]0
+
+# Evaluate the expression
+x <- 6/3 - 2 + 1 * 0 + 3/3 - 3
+
+# Print the value of x
+print(x)
+
+OUTPUT:
+[1]-2
