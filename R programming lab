@@ -1,0 +1,602 @@
+QUESTIONS 
+1. Write a R program to take input from the user (name and age) and display the values. Also print 
+the version of R installation.
+2. Write a R program to get the details of the objects in memory.
+3. Write a R program to create a sequence of numbers from 20 to 50 and find the mean of numbers 
+from 20 to 60 and sum of numbers from 51 to 91.
+4. Write a R program to create a vector which contains 10 random integer values between -50 and 
++50.
+5. Write a R program to get the first 10 Fibonacci numbers.
+6. Write a R program to get all prime numbers up to a given number (based on the sieve of 
+Eratosthenes).
+7. Write a R program to print the numbers from 1 to 100 and print "Fizz" for multiples of 3, print 
+"Buzz" for multiples of 5, and print "FizzBuzz" for multiples of both.
+8. Write a R program to extract first 10 english letter in lower case and last 10 letters in upper case 
+and extract letters between 22nd to 24th letters in upper case.
+9. Write a R program to find the factors of a given number.
+10. Write a R program to find the maximum and the minimum value of a given vector.
+11. Write a R program to get the unique elements of a given string and unique numbers of vector.
+12. Write a R program to create three vectors a,b,c with 3 integers. Combine the three vectors to
+become a 3×3 matrix where each column represents a vector. Print the content of the matrix.
+13. Write a R program to create a list of random numbers in normal distribution and count 
+occurrences of each value.
+14. Write a R program to read the .csv file and display the content.
+15. Write a R program to create three vectors numeric data, character data and logical data. Display 
+the content of the vectors and their type.
+16. Write a R program to create a 5 x 4 matrix , 3 x 3 matrix with labels and fill the matrix by rows 
+and 2 × 2 matrix with labels and fill the matrix by columns.
+17. Write a R program to create an array, passing in a vector of values and a vector of dimensions. 
+Also provide names for each dimension.
+18. Write a R program to create an array with three columns, three rows, and two "tables", taking 
+two vectors as input to the array. Print the array.
+19. Write a R program to create a list of elements using vectors, matrices and a functions. Print the 
+content of the list.
+20. Write a R program to draw an empty plot and an empty plot specify the axes limits of the graphic
+21. Write a R program to create an array of two 3x3 matrices each with 3 rows and 3 columns from 
+two given two vectors. Print the second row of the second matrix of the array and the element in the 
+3rd row and 3rd column of the 1st matrix.
+22. Write a R program to combine three arrays so that the first row of the first array is followed by 
+the first row of the second array and then first row of the third array.
+23. Write a R program to create an array using four given columns, three given rows, and two given 
+tables and display the content of the array.
+24. Write a R program to create a two-dimensional 5x3 array of sequence of even integers greater 
+than 50.
+25. Create below data frame
+exam_data = data.frame(
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+'Jonas'),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+a. Write a R program to extract 3rd and 5th rows with 1st and 3rd columns from a given data frame
+b. Write a R program to add a new column named country in a given data frame
+Country<-c("USA","USA","USA","USA","UK","USA","USA","India","USA","USA")
+c. Write a R program to add new row(s) to an existing data frame
+new_exam_data = data.frame(name = c('Robert', 'Sophia'),score = c(10.5, 9), attempts = c(1, 
+3),qualify = c('yes', 'no'))
+d. Write a R program to sort a given data frame by name and score
+e. Write a R program to save the information of a data frame in a file and display the information of 
+the file.
+26. Write a R program to call the (built-in) dataset airquality. Check whether it is a data frame or 
+not? Order the entire data frame by the first and second column. remove the variables 'Solar.R' and 
+'Wind' and display the data frame.
+27. Write a R program to create a factor corresponding to height of women data set , which inbuild in 
+R, contains height and weights for a sample of women.
+28. Write a R program to extract the five of the levels of factor created from a random sample from 
+the LETTERS (Part of the base R distribution.)
+29. Iris dataset is a very famous dataset in almost all data mining, machine learning courses, and it 
+has been an R build-in dataset. The dataset consists of 50 samples from each of three species of Iris 
+flowers (Iris setosa, Iris virginica and Iris versicolor). Four features(variables) were measured from 
+each sample, they are the length and the width of sepal and petal, in centimetres. Perform the 
+following EDA steps .
+(i)Find dimension, Structure, Summary statistics, Standard Deviation of all features.
+(ii)Find mean and standard deviation of features groped by three species of Iris flowers (Iris setosa, 
+Iris virginica and Iris versicolor)
+(iii)Find quantile value of sepal width and length
+(iV)create new data frame named iris1 which have a new column name Sepal.Length.Cate that 
+categorizes “Sepal.Length” by quantile
+(V) Average value of numerical varialbes by two categorical variables: Species and 
+Sepal.Length.Cate:
+(vi) Average mean value of numerical varialbes by Species and Sepal.Length.Cate
+(vii)Create Pivot Table based on Species and Sepal.Length.Cate.
+30. Randomly Sample the iris dataset such as 80% data for training and 20% for test and create 
+Logistics regression with train data, use species as target and petals width and
+length as feature variables , Predict the probability of the model using test data, Create Confusion 
+matrix for above test model
+31. (i)Write suitable R code to compute the mean, median ,mode of the following values
+ c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20) 
+ (ii) Write R code to find 2nd highest and 3rd
+ Lowest value of above problem.
+32. Explore the airquality dataset. It contains daily air quality measurements from New York during a 
+period of five months:
+• Ozone: mean ozone concentration (ppb), • Solar.R: solar radiation (Langley),
+• Wind: average wind speed (mph), • Temp: maximum daily temperature in degrees Fahrenheit,
+• Month: numeric month (May=5, June=6, and so on),• Day: numeric day of the month (1-
+31). 
+i. Compute the mean temperature(don’t use build in function)
+ii.Extract the first five rows from airquality.
+iii.Extract all columns from airquality except Temp and Wind
+iv.Which was the coldest day during the period?
+v.How many days was the wind speed greater than 17 mph.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 1
+name = readline(prompt="Input your name: ")
+age =  readline(prompt="Input your age: ")
+print(paste("My name is",name, "and I am",age ,"years old."))
+print(R.version.string)
+
+#2
+x <- 1:100
+y <- matrix(1:200, ncol = 2)
+z <- "Hello, world!"
+objects <- ls()
+for (obj in objects) {
+  size <- object.size(get(obj))
+  cat("Object:", obj, "\n")
+  cat("Size:", size, "bytes\n")
+  cat("\n")
+}
+
+rm(x,y,z)
+
+#3
+
+sequence_20_to_50 <- 20:50
+
+
+mean_20_to_60 <- mean(20:60)
+
+sum_51_to_91 <- sum(51:91)
+
+cat("Sequence of numbers from 20 to 50:", sequence_20_to_50, "\n")
+cat("Mean of numbers from 20 to 60:", mean_20_to_60, "\n")
+cat("Sum of numbers from 51 to 91:", sum_51_to_91, "\n")
+
+
+#4
+
+min_value <- -50
+max_value <- 50
+random_vector <- sample(min_value:max_value, 10, replace = TRUE)
+cat("Random vector of 10 integers between -50 and +50:", random_vector, "\n")
+
+#5
+# Function to generate the first n Fibonacci numbers
+fibonacci <- function(n) {
+  if (n <= 0) {
+    return(NULL)
+  } else if (n == 1) {
+    return(0)
+  } else if (n == 2) {
+    return(c(0, 1))
+  } else {
+    fib <- numeric(n)
+    fib[1] <- 0
+    fib[2] <- 1
+    for (i in 3:n) {
+      fib[i] <- fib[i - 1] + fib[i - 2]
+    }
+    return(fib)
+  }
+}
+
+fibonacci(10)
+
+#6
+# Function to find all prime numbers up to a given limit using the Sieve of Eratosthenes
+sieve_of_eratosthenes <- function(limit) {
+  primes <- rep(TRUE, limit + 1)
+  primes[1] <- FALSE  # 1 is not a prime
+  
+  for (num in 2:sqrt(limit)) {
+    if (primes[num]) {
+      primes[num^2:(limit+1):num] <- FALSE
+    }
+  }
+  
+  return(which(primes))
+}
+
+# Specify the limit
+limit <- 100
+
+# Get the prime numbers up to the specified limit
+prime_numbers <- sieve_of_eratosthenes(limit)
+
+# Print the prime numbers
+cat("Prime numbers up to", limit, ":", prime_numbers, "\n")
+
+
+
+#7
+# Loop through numbers from 1 to 100
+for (num in 1:100) {
+  if (num %% 3 == 0 && num %% 5 == 0) {
+    cat("FizzBuzz", "\n")
+  } else if (num %% 3 == 0) {
+    cat("Fizz", "\n")
+  } else if (num %% 5 == 0) {
+    cat("Buzz", "\n")
+  } else {
+    cat(num, "\n")
+  }
+}
+
+
+#8
+# Extract first 10 English letters in lower case
+first_10_lower <- letters[1:10]
+
+last_10_upper <- toupper(letters[17:26])
+
+letters_between_22_24 <- toupper(letters[22:24])
+
+
+cat("First 10 English letters in lower case:", first_10_lower, "\n")
+cat("Last 10 English letters in upper case:", last_10_upper, "\n")
+cat("Letters between 22nd and 24th in upper case:", letters_between_22_24, "\n")
+
+
+#9
+print_factors <- function(x) {
+  print(paste("The factors of",x,"are:"))
+  for(i in 1:x) {
+    if((x %% i) == 0) {
+      print(i)
+    }
+  }
+}
+print_factors(8)
+
+
+#10
+# Create a sample vector
+vector <- c(10, 5, 20, 15, 8, 25, 3)
+
+# Find the maximum and minimum values
+max_value <- max(vector)
+min_value <- min(vector)
+
+# Print the maximum and minimum values
+cat("Maximum value:", max_value, "\n")
+cat("Minimum value:", min_value, "\n")
+
+
+#11
+A <- c(1, 2, 3, 3, 2,"ae","ae","b", 5, 6, 7, 6, 5)
+
+
+unique(A)
+
+#12
+ # Create three vectors a, b, and c
+a <- c(1, 2, 3)
+b <- c(4, 5, 6)
+c <- c(7, 8, 9)
+
+# Combine the vectors into a matrix
+combined_matrix <- cbind(a, b, c)
+
+# Print the content of the matrix
+cat("Combined Matrix:\n")
+print(combined_matrix)
+
+
+#13
+# Generate a list of 10 random numbers in normal distribution
+random_numbers <- rnorm(10, mean = 10, sd = 10)
+# Create a table to store the occurrences of each value
+table_of_occurrences <- table(random_numbers)
+# Print the table of occurrences
+print(table_of_occurrences)
+
+#14
+
+sample_data <- data.frame(
+  Name = c("Alice", "Bob", "Charlie", "David"),
+  Age = c(25, 30, 22, 28),
+  City = c("New York", "Los Angeles", "Chicago", "Houston")
+)
+file_path <- "sample_data.csv"
+
+print(data)
+
+#15
+numeric_vector <- c(1.2, 3.4, 5.6, 7.8, 9.0)
+character_vector <- c("apple", "banana", "orange", "grape", "kiwi")
+logical_vector <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+cat(numeric_vector,"Type:", class(numeric_vector), "\n")
+cat("character vector:",character_vector,"\n","Type:", class(character_vector),"\n\n")
+cat("logical vector:",logical_vector,"\n","Type:", class(logical_vector),"\n\n")
+
+
+
+
+
+#16
+# Create a 5 x 4 matrix filled by rows
+matrix_rows <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE)
+rownames(matrix_rows) <- c("Row1", "Row2", "Row3", "Row4", "Row5")
+colnames(matrix_rows) <- c("Col1", "Col2", "Col3", "Col4")
+
+# Create a 3 x 3 matrix with labels and fill by rows
+matrix_3x3 <- matrix(c(10, 20, 30, 40, 50, 60, 70, 80, 90), nrow = 3,byrow =TRUE)
+rownames(matrix_3x3) <- c("R1", "R2", "R3")
+colnames(matrix_3x3) <- c("C1", "C2", "C3")
+
+# Create a 2 x 2 matrix with labels and fill by columns
+matrix_2x2 <- matrix(c("A", "B", "C", "D"), nrow = 2, byrow = FALSE)
+rownames(matrix_2x2) <- c("R1", "R2")
+colnames(matrix_2x2) <- c("C1", "C2")
+
+# Display the matrices
+cat("5 x 4 Matrix filled by rows:\n")
+print(matrix_rows)
+cat("\n")
+
+cat("3 x 3 Matrix with labels and filled by rows:\n")
+print(matrix_3x3)
+cat("\n")
+
+cat("2 x 2 Matrix with labels and filled by columns:\n")
+print(matrix_2x2)
+
+
+#17
+
+values <- c(1, 2, 3, 4, 5, 6)
+dims <- c(2, 3)
+my_array <- array(values, dim = dims, dimnames = list(c("row1", "row2"), c("col1", "col2", "col3")))
+my_array
+
+
+
+#18
+vec1 <- c(1, 2, 3, 4, 5, 6)
+vec2 <- c(7, 8, 9, 10, 11, 12)
+val <- c(vec1, vec2)
+my_array <- array(val, dim= c(3,3,2))
+my_array
+
+
+#19
+v <- c(1, 2, 3, 4, 5)
+m <- matrix(letters[1:9], nrow = 3, ncol = 3)
+f <- function(x, y) {
+  return(x + y)
+}
+l <- list(v,m,f)
+print(l)
+
+
+
+#20
+library(graphics)
+plot(0, type = "n", xlim = c(0, 10), ylim = c(0, 10),
+     xlab = "X-axis", ylab = "Y-axis", main = "Empty Plot")
+plot(0, type = "n", xlim = c(-2, 2), ylim = c(-2, 2), xlab = "X-axis", 
+     ylab = "Y-axis", main = "Empty Plot with Custom Axes Limits")
+
+
+
+
+#21
+v1 <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+v2 <- c(10, 11, 12, 13, 14, 15, 16, 17, 18)
+a <- array(c(v1, v2), dim = c(3, 3, 2))
+a
+print(a[2, , 2])
+print(a[3,3,1])
+
+
+#22
+v1 <- c(1, 2, 3, 4, 5, 6, 7, 8, 9)
+v2 <- c(10, 11, 12, 13, 14, 15, 16, 17, 18)
+a <- array(c(v1, v2), dim = c(3, 3, 2))
+a
+print(a[2, , 2])
+print(a[3,3,1])
+
+#23
+v <- 1:24
+a <- array(v, dim = c(3, 4, 2))
+print(a)
+
+
+#24
+v <- seq(52, 80, 2)
+a <- array(v, dim = c(5, 3))
+print(a)
+
+
+#25
+exam_data = data.frame(
+  name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin',
+           'Jonas'),
+  score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+  attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+  qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+)
+subset_exam_data <- exam_data[c(3, 5), c(1, 3)]
+print(subset_exam_data)
+#b
+Country<-c("USA","USA","USA","USA","UK","USA","USA","India","USA","USA")
+exam_data1<- cbind(exam_data, Country)
+exam_data1
+#c
+new_exam_data = data.frame(name = c('Robert','Sophia'),score = c(10.5,9),attempts = c('N','N'),qualify = c('yes','no'))
+exam_data <- rbind(exam_data,new_exam_data)
+print(exam_data)
+#d
+sorted_exam_data <- exam_data[order(exam_data$name, exam_data$score), ]
+print(sorted_exam_data)
+#e
+write.table(exam_data, file = "exam_data.txt", row.names = FALSE)
+file.info("exam_data.txt")
+
+#26
+data(airquality)
+if (is.data.frame(airquality)) {
+  print("airquality is a data frame.")
+} else {
+  print("airquality is not a data frame.")
+}
+ordered_airquality <- airquality[order(airquality$Month, airquality$Day), ]
+
+filtered_airquality <- ordered_airquality[, !(names(ordered_airquality) %in% c('Solar.R', 'Wind'))]
+
+print(filtered_airquality)
+
+
+#27
+# Load the women dataset
+data("women")
+
+# Create a factor corresponding to the height variable
+height_factor <- factor(women$height)
+
+# Print the levels of the factor
+print(levels(height_factor))
+
+
+
+#28
+random_sample <- sample(LETTERS, 20, replace = TRUE)
+
+# Create a factor from the random sample
+random_factor <- factor(random_sample)
+
+# Extract five unique levels from the factor
+selected_levels <- unique(random_factor)[1:5]
+
+# Print the selected levels
+print(selected_levels)
+
+
+
+
+
+#29
+# Load the Iris dataset
+data("iris")
+
+# (i) Find dimension, Structure, Summary statistics, Standard Deviation of all features.
+# Dimension of the dataset
+dim(iris)
+
+# Structure of the dataset
+str(iris)
+
+# Summary statistics
+summary(iris)
+
+# Standard Deviation of all features
+apply(iris[, 1:4], 2, sd)
+
+# (ii) Find mean and standard deviation of features grouped by species
+aggregate(iris[, 1:4], by = list(species = iris$Species), FUN = function(x) c(mean = mean(x), sd = sd(x)))
+
+# (iii) Find quantile value of sepal width and length
+quantile(iris$Sepal.Width)
+quantile(iris$Sepal.Length)
+
+# (iv) Create a new data frame named iris1 with a new column "Sepal.Length.Cate" that categorizes "Sepal.Length" by quantile
+iris1 <- iris
+iris1$Sepal.Length.Cate <- cut(iris1$Sepal.Length, breaks = quantile(iris1$Sepal.Length), labels = FALSE, include.lowest = TRUE)
+
+# (v) Average value of numerical variables by Species and Sepal.Length.Cate
+aggregate(iris1[, 1:4], by = list(Species = iris1$Species, Sepal.Length.Cate = iris1$Sepal.Length.Cate), FUN = mean)
+
+# (vi) Average mean value of numerical variables by Species and Sepal.Length.Cate
+aggregate(iris1[, 1:4], by = list(Species = iris1$Species, Sepal.Length.Cate = iris1$Sepal.Length.Cate),
+          FUN = function(x) mean(x, na.rm = TRUE))
+
+
+
+          
+          
+          
+# 30
+# Load required libraries
+library(dplyr)
+library(caTools)
+library(nnet)
+library(caret)
+
+# Load the Iris dataset
+data("iris")
+
+# Set a seed for reproducibility
+set.seed(123)
+
+# Split the dataset into training (80%) and test (20%) sets
+split <- sample.split(iris$Species, SplitRatio = 0.8)
+train_data <- subset(iris, split == TRUE)
+test_data <- subset(iris, split == FALSE)
+
+# Create a logistic regression model
+model <- multinom(Species ~ Petal.Length + Petal.Width, data = train_data)
+
+# Predict probabilities using the test data
+predictions <- predict(model, newdata = test_data, type = "probs")
+
+# Create a confusion matrix
+confusion_matrix <- confusionMatrix(data = factor(predictions), reference = factor(test_data$Species))
+print(confusion_matrix)
+  
+
+
+
+
+#31
+# Given values
+data_values <- c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20)
+
+# (i) Compute mean, median, and mode
+mean_value <- mean(data_values)
+median_value <- median(data_values)
+mode_value <- as.numeric(names(sort(table(data_values), decreasing = TRUE)[1]))
+
+cat("Mean:", mean_value, "\n")
+cat("Median:", median_value, "\n")
+cat("Mode:", mode_value, "\n")
+
+# (ii) Find 2nd highest and 3rd lowest values
+sorted_values <- sort(unique(data_values), decreasing = TRUE)
+second_highest <- sorted_values[2]
+third_lowest <- sorted_values[length(sorted_values) - 2]
+
+cat("2nd Highest Value:", second_highest, "\n")
+cat("3rd Lowest Value:", third_lowest, "\n")
+
+
+
+
+#32
+# Load the airquality dataset
+data("airquality")
+
+# i. Compute the mean temperature (without using built-in function)
+mean_temp <- sum(airquality$Temp, na.rm = TRUE) / length(airquality$Temp)
+cat("Mean Temperature:", mean_temp, "\n")
+
+# ii. Extract the first five rows from airquality
+first_five_rows <- airquality[1:5, ]
+print(first_five_rows)
+
+# iii. Extract all columns from airquality except Temp and Wind
+selected_columns <- airquality[, !(names(airquality) %in% c("Temp", "Wind"))]
+print(selected_columns)
+
+# iv. Which was the coldest day during the period?
+coldest_day <- airquality$Day[which.min(airquality$Temp)]
+cat("Coldest Day:", coldest_day, "\n")
+
+# v. How many days was the wind speed greater than 17 mph?
+wind_gt_17_count <- sum(airquality$Wind > 17, na.rm = TRUE)
+cat("Days with Wind Speed > 17 mph:", wind_gt_17_count, "\n")
+
+
