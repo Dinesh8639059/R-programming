@@ -1,0 +1,385 @@
+33. (i)Get the Summary Statistics of air quality dataset
+ (ii)Melt airquality data set and display as a long – format data?
+ (iii)Melt airquality data and specify month and day to be “ID variables”?
+ (iv)Cast the molten airquality data set with respect to month and date features
+ (v) Use cast function appropriately and compute the average of Ozone, Solar.R , Wind and 
+temperature per month? 
+34.(i) Find any missing values(na) in features and drop the missing values if its less than 10%
+ else replace that with mean of that feature.
+ (ii) Apply a linear regression algorithm using Least Squares Method on “Ozone” and “Solar.R”
+ (iii)Plot Scatter plot between Ozone and Solar and add regression line created by above 
+ model
+35. Load dataset named ChickWeight,
+ ( i).Order the data frame, in ascending order by feature name “weight” grouped by feature 
+ “diet” and Extract the last 6 records from order data frame.
+ (ii).a Perform melting function based on “Chick", "Time", "Diet" features as ID variables
+ b. Perform cast function to display the mean value of weight grouped by Diet
+ c. Perform cast function to display the mode of weight grouped by Diet
+36. a. Create Box plot for “weight” grouped by “Diet”
+ b. Create a Histogram for “weight” features belong to Diet- 1 category
+ c. Create Scatter plot for “ weight” vs “Time” grouped by Die
+37. a. Create multi regression model to find a weight of the chicken , by “Time” and “Diet” as as
+ predictor variables
+ b. Predict weight for Time=10 and Diet=1
+ c. Find the error in model for same
+38. .For this exercise, use the (built-in) dataset Titanic.
+ a. Draw a Bar chart to show details of “Survived” on the Titanic based on passenger Class
+ b. Modify the above plot based on gender of people who survived
+ c. Draw histogram plot to show distribution of feature “Age”
+39. Explore the USArrests dataset, contains the number of arrests for murder, assault, and rape for 
+each of the 50 states in 1973. It also contains the percentage of people in the state who live in an 
+urban area.
+ (i) a. Explore the summary of Data set, like number of Features and its type. Find the number 
+ of records for each feature. Print the statistical feature of data
+ b. Print the state which saw the largest total number of rape
+ c. Print the states with the max & min crime rates for murder
+(ii).a. Find the correlation among the features
+ b. Print the states which have assault arrests more than median of the country
+ c. Print the states are in the bottom 25% of murder
+ (iii). a. Create a histogram and density plot of murder arrests by US stat
+ b. Create the plot that shows the relationship between murder arrest rate and proportion 
+ of the population that is urbanised by state. Then enrich the chart by adding assault 
+ arrest rates (by colouring the points from blue (low) to red (high)).
+ c. Draw a bar graph to show the murder rate for each of the 50 states . 
+40. 4. a. Create a data frame based on below table.
+ 
+Month 1 2 3 4 5 6 7 8 9 10 11 12
+Spends 1000 4000 5000 4500 3000 4000 9000 11000 15000 12000 7000 3000
+Sales 9914 40487 54324 50044 34719 42551 94871 118914 158484 131348 78504 36284
+b. Create a regression model for that data frame table to show the amount of sales(Sales) based on the 
+how much the company spends (Spends) in advertising
+c. Predict the Sales if Spend=13500
+
+PROGRAMMES
+
+
+
+#33
+# Load required library
+library(reshape2)
+
+# Load the airquality dataset
+data(airquality)
+
+# (i) Summary Statistics of airquality dataset
+summary(airquality)
+
+# (ii) Melt airquality data set and display as long-format data
+melted_data <- melt(airquality)
+head(melted_data)
+
+# (iii) Melt airquality data and specify month and day to be "ID variables"
+melted_data_id <- melt(airquality, id.vars = c("Month", "Day"))
+head(melted_data_id)
+
+# (iv) Cast the molten airquality data set with respect to month and date features
+casted_data <- dcast(melted_data_id, Month + Day ~ variable)
+head(casted_data)
+
+# (v) Use cast function to compute the average of Ozone, Solar.R, Wind, and Temperature per month
+average_per_month <- dcast(melted_data_id, Month ~ variable, mean)
+head(average_per_month)
+
+#34
+
+
+# Load the required librarieslibrary(dplyr)
+library(ggplot2)
+library(missForest)  # For imputing missing values
+library(caret)       # For modeling
+
+# Load the airquality dataset
+data("airquality")
+
+# (i) Handle missing values
+missing_threshold <- nrow(airquality) * 0.10  # 10% threshold
+
+# Function to replace missing values with mean
+replace_with_mean <- function(column) {
+  column[is.na(column)] <- mean(column, na.rm = TRUE)
+  return(column)
+}
+
+# Loop through features, either replacing missing values with mean or dropping them
+for (col in names(airquality)) {
+  if (sum(is.na(airquality[[col]])) > 0) {
+    if (sum(is.na(airquality[[col]])) <= missing_threshold) {
+      airquality[[col]] <- replace_with_mean(airquality[[col]])
+    } else {
+      airquality <- airquality[!is.na(airquality[[col]]), ]
+    }
+  }
+}
+
+# (ii) Apply linear regression using Least Squares Method on "Ozone" and "Solar.R"
+lm_model <- lm(Ozone ~ Solar.R, data = airquality)
+
+# (iii) Plot Scatter plot with regression line
+ggplot(airquality, aes(x = Solar.R, y = Ozone)) +
+  geom_point() +
+  geom_smooth(method = "lm", formula = y ~ x, se = FALSE, color = "red") +
+  labs(x = "Solar Radiation", y = "Ozone Level", title = "Scatter Plot with Regression Line")
+
+# 35
+library(dplyr)
+library(tidyr)
+
+# Load the ChickWeight dataset (if not already loaded)
+data("ChickWeight")
+
+# (i) Order the data frame by 'weight' in ascending order, grouped by 'Diet'
+ordered_data <- ChickWeight %>%
+  arrange(Diet, weight) %>%
+  group_by(Diet) %>%
+  slice_tail(n = 6)
+
+# (ii) a. Melting the data
+melted_data <- ChickWeight %>%
+  select(Chick, Time, Diet, weight) %>%
+  gather(key = Measurement, value = Weight, -Chick, -Time, -Diet)
+
+# b. Performing cast to get mean weight grouped by Diet
+mean_weight_by_diet <- melted_data %>%
+  group_by(Diet) %>%
+  summarise(mean_weight = mean(Weight, na.rm = TRUE))
+
+# c. Performing cast to get mode weight grouped by Diet
+mode_weight_by_diet <- melted_data %>%
+  group_by(Diet) %>%
+  summarise(mode_weight = as.numeric(names(table(Weight)[table(Weight) == max(table(Weight))])))
+
+# Print the results
+print("Last 6 records of ordered data:")
+print(ordered_data)
+
+print("Mean weight grouped by Diet:")
+print(mean_weight_by_diet)
+
+print("Mode weight grouped by Diet:")
+print(mode_weight_by_diet)
+
+
+
+#36
+library(ggplot2)
+library(gridExtra)
+
+# Sample data (replace this with your actual data)
+data <- data.frame(
+  weight = c(150, 160, 140, 130, 155, 145),
+  Diet = c(1, 2, 1, 3, 2, 1),
+  Time = c(30, 40, 25, 50, 35, 28)
+)
+
+# Box Plot for "weight" grouped by "Diet"
+box_plot <- ggplot(data, aes(x = factor(Diet), y = weight, fill = factor(Diet))) +
+  geom_boxplot() +
+  labs(title = "Box Plot of Weight Grouped by Diet",
+       x = "Diet",
+       y = "Weight") +
+  scale_fill_discrete(name = "Diet")
+
+# Histogram for "weight" in Diet-1 Category
+hist_plot <- ggplot(subset(data, Diet == 1), aes(x = weight)) +
+  geom_histogram(binwidth = 5, fill = "blue", color = "black") +
+  labs(title = "Histogram of Weight in Diet-1 Category",
+       x = "Weight",
+       y = "Frequency")
+
+# Scatter Plot for "weight" vs "Time" Grouped by "Diet"
+scatter_plot <- ggplot(data, aes(x = weight, y = Time, color = factor(Diet))) +
+  geom_point() +
+  labs(title = "Scatter Plot of Weight vs Time Grouped by Diet",
+       x = "Weight",
+       y = "Time",
+       color = "Diet")
+
+# Arrange plots in a grid layout
+grid.arrange(box_plot, hist_plot, scatter_plot, ncol = 2)
+
+#37
+# Fit the multiple regression model
+model <- lm(weight ~ Time + Diet, data = data)
+
+# Display model summary
+summary(model)
+# Create a new data frame for prediction
+new_data <- data.frame(Time = 10, Diet = 1)
+
+# Predict weight using the model
+predicted_weight <- predict(model, newdata = new_data)
+
+# Display the predicted weight
+print(predicted_weight)
+# Make predictions for the entire dataset
+predicted_weights <- predict(model, newdata = data)
+
+# Calculate the residuals (errors)
+residuals <- data$weight - predicted_weights
+
+# Calculate the Mean Squared Error (MSE)
+mse <- mean(residuals^2)
+
+# Display the MSE
+print(mse)
+
+#38
+# Load the Titanic dataset
+data("Titanic")
+
+# Convert Titanic data to a data frame
+titanic_df <- as.data.frame(Titanic)
+
+# Create a bar chart
+bar_plot_class <- ggplot(titanic_df, aes(x = Class, y = Freq, fill = Survived)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Survival by Passenger Class",
+       x = "Passenger Class",
+       y = "Frequency") +
+  scale_fill_manual(values = c("red", "green"), labels = c("Not Survived", "Survived")) +
+  theme_minimal()
+
+# Display the plot
+print(bar_plot_class)
+
+
+# B
+# Load the Titanic dataset
+data("Titanic")
+
+# Convert Titanic data to a data frame
+titanic_df <- as.data.frame(Titanic)
+
+# Filter the data for survived passengers
+survived_df <- subset(titanic_df, Survived == "Yes")
+
+# Create a bar chart with gender differentiation
+bar_plot_gender <- ggplot(survived_df, aes(x = Class, y = Freq, fill = Sex)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Survival by Passenger Class and Gender",
+       x = "Passenger Class",
+       y = "Frequency") +
+  scale_fill_manual(values = c("blue", "pink"), labels = c("Male", "Female")) +
+  theme_minimal()
+
+# Display the plot
+print(bar_plot_gender)
+
+
+# c 
+# Load the Titanic dataset
+data("Titanic")
+
+# Convert Titanic data to a data frame
+titanic_df <- as.data.frame(Titanic)
+
+# Filter out NAs in Age
+titanic_age <- na.omit(titanic_df)
+
+# Create a bar plot to show the distribution of ages
+age_dist_bar <- ggplot(titanic_age, aes(x = Age)) +
+  geom_bar(fill = "lightblue", color = "black") +
+  labs(title = "Distribution of Age",
+       x = "Age",
+       y = "Frequency") +
+  theme_minimal()
+
+# Display the plot
+print(age_dist_bar)
+
+
+#39
+# Load required libraries
+library(ggplot2)
+
+# Load the USArrests dataset
+data("USArrests")
+
+# (i) Explore the Dataset
+# a. Summary of the dataset and print statistical features
+summary(USArrests)
+table(!is.na(USArrests))
+sapply(USArrests, function(x) c(Mean = mean(x, na.rm = TRUE),
+                                SD = sd(x, na.rm = TRUE),
+                                Min = min(x, na.rm = TRUE),
+                                Max = max(x, na.rm = TRUE)))
+
+# b. Print the state which saw the largest total number of rape
+max_rape_state <- rownames(USArrests)[which.max(USArrests$Rape)]
+print(paste("State with the largest total number of rape:", max_rape_state))
+
+# c. Print the states with the max & min crime rates for murder
+max_murder_state <- rownames(USArrests)[which.max(USArrests$Murder)]
+min_murder_state <- rownames(USArrests)[which.min(USArrests$Murder)]
+print(paste("State with the max crime rate for murder:", max_murder_state))
+print(paste("State with the min crime rate for murder:", min_murder_state))
+
+# (ii) Correlation and Filtering
+# a. Find the correlation among the features
+correlation_matrix <- cor(USArrests)
+print(correlation_matrix)
+
+# b. Print the states which have assault arrests more than the median of the country
+median_assault <- median(USArrests$Assault, na.rm = TRUE)
+states_above_median_assault <- rownames(USArrests)[USArrests$Assault > median_assault]
+print(paste("States with assault arrests more than median:", states_above_median_assault))
+
+# c. Print the states in the bottom 25% of murder
+murder_percentile <- quantile(USArrests$Murder, probs = 0.25, na.rm = TRUE)
+states_bottom_25_murder <- rownames(USArrests)[USArrests$Murder < murder_percentile]
+print(paste("States in the bottom 25% of murder:", states_bottom_25_murder))
+
+# (iii) Creating Plots
+# a. Histogram and density plot of murder arrests
+par(mfrow = c(1, 2))
+hist(USArrests$Murder, main = "Histogram of Murder Arrests", xlab = "Murder Arrests")
+plot(density(USArrests$Murder), main = "Density Plot of Murder Arrests")
+
+# b. Scatter plot showing the relationship between murder arrest rate, urban population proportion, and assault arrest rates
+scatter_plot <- ggplot(USArrests, aes(x = Murder, y = UrbanPop, color = Assault)) +
+  geom_point() +
+  labs(title = "Relationship Between Murder Arrest Rate and Urban Population Proportion",
+       x = "Murder Arrest Rate",
+       y = "Urban Population Proportion",
+       color = "Assault Arrest Rate") +
+  scale_color_gradient(low = "blue", high = "red")
+print(scatter_plot)
+
+# c. Bar graph to show the murder rate for each of the 50 states
+bar_plot_murder <- ggplot(USArrests, aes(x = reorder(rownames(USArrests), -Murder), y = Murder)) +
+  geom_bar(stat = "identity", fill = "lightblue") +
+  labs(title = "Murder Rate for Each State",
+       x = "State",
+       y = "Murder Rate") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+print(bar_plot_murder)
+
+
+#40
+
+# Create a data frame based on the provided table
+data <- data.frame(
+  Month = 1:12,
+  Spends = c(1000, 4000, 5000, 4500, 3000, 4000, 9000, 11000, 15000, 12000, 7000, 3000),
+  Sales = c(9914, 40487, 54324, 50044, 34719, 42551, 94871, 118914, 158484, 131348, 78504, 36284)
+)
+
+# Display the data frame
+print(data)
+
+# Fit the regression model
+model <- lm(Sales ~ Spends, data = data)
+
+# Display model summary
+summary(model)
+
+# Create a new data frame for prediction
+new_data <- data.frame(Spends = 13500)
+
+# Predict sales using the model
+predicted_sales <- predict(model, newdata = new_data)
+
+# Display the predicted sales
+print(predicted_sales)
+
+
